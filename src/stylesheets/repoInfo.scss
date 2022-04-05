@@ -1,0 +1,14 @@
+.repo-info{
+    text-align: start;
+}
+.repo-status{
+    > *{
+        margin: 32px;
+    }
+}
+
+.outer-link{
+    display: block;
+    text-align: end;
+    margin: 5rem 0;
+}
