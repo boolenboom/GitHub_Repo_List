@@ -27,7 +27,7 @@ export default function LanguageRatio({url}){
             sum += ratio[el];
         })
         setProgressComposite(keys.map(key=>{
-            return (<span key={'ratio' + key} style={{backgroundColor:languageColor[key].color, width:`${ percentRound(ratio[key] / sum) }%`}}></span>)
+            return (<span key={'ratio' + key} style={{backgroundColor:languageColor[key]?.color || '#000', width:`${ percentRound(ratio[key] / sum) }%`}}></span>)
         }))
     },[ratio])
 
