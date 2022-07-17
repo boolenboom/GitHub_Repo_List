@@ -31,7 +31,6 @@ export default function UserList(){
     useEffect(()=>{
         function checkReadProgress(){
             let totalHeight = dom.clientHeight - window.innerHeight;
-            console.log(totalHeight);
             window.requestAnimationFrame(()=>{
                 console.log(window.scrollY / totalHeight);
                 if(window.scrollY / totalHeight > 0.99 && loadStatus !== 'Loading...'){
@@ -55,7 +54,7 @@ export default function UserList(){
 
     return (
         <div className="users">
-            <h2>User list</h2>
+            <h2>想看誰的Repos？</h2>
             <ul className="user-list d-flex y-axis-center wrap">
                 {listItem}
                 <li className="load-msg">{loadStatus}</li>
