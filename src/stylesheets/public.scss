@@ -105,3 +105,30 @@ img{
         padding: 0 16px;
     }
 }
+
+.pos-fixed{
+    position: fixed;
+    &.top{
+        top: 0;
+    }
+}
+
+.breadcrumb{
+    padding: 12px auto;
+    width: 100%;
+    background-color: #666666;
+    transform: translateY(-100%);
+    transition: transform .4s .5s ease;
+    &.scrollUp{
+        transition-delay: 0s;
+        transform: translateY(0);
+    }
+}
+
+.current-location{
+    color: #40b9d0;
+}
+
+a:hover {
+    color: #61dafb;
+}
