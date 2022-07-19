@@ -53,12 +53,12 @@ export default function UserList(){
     },[list])
 
     return (
-        <div className="users">
+        <section className="users">
             <h2>想看誰的Repos？</h2>
             <ul className="user-list d-flex y-axis-center wrap">
                 {listItem}
                 <li className="load-msg">{loadStatus}</li>
             </ul>
-        </div>
+        </section>
     )
 }

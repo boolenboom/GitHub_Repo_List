@@ -49,11 +49,11 @@ export default function UserRepos(){
     })
 
     return (
-    <div className="user-repos">
+    <section className="user-repos">
         <div className="user-info">
             <img src={list[0]?.avatarurl || ''} alt="user icon" srcSet="" />
             <h2 className="username">{username}</h2>
         </div>
         <RepoList list={list} msg={loadStatus}></RepoList>
-    </div>)
+    </section>)
 }

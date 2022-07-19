@@ -24,7 +24,7 @@ export default function RepoInfo(){
     },[url]);
 
     return (
-        <div className="repo-info container">
+        <section className="repo-info container">
             <ObjectName name={info.fullname}></ObjectName>
             <div className="repo-status">
                 <div className="status-about">
@@ -43,6 +43,6 @@ export default function RepoInfo(){
             </div>
             
             <a className="outer-link" href={info.repourl}>{' 前往GitHub頁面 ->'}</a>
-        </div>
+        </section>
     )
 }
