@@ -5,7 +5,7 @@
 function fetcherGenerator( fetcher = {} ){
     if( typeof fetcher !== 'object' )fetcher = {};
     fetcher.url = '';
-    fetcher.header = undefined;
+    fetcher.option = undefined;
     fetcher._shift = Array.prototype.shift;
     fetcher._dataFn = function( originData ){
         return originData;
@@ -15,8 +15,10 @@ function fetcherGenerator( fetcher = {} ){
         let afterAction = fetcher._shift.call( arguments );
         let args = arguments;
         let fn = fetcher._dataFn;
+        const url = fetcher.url;
+        const option = fetcher.option;
 
-        fetch( fetcher.url, fetcher.header )
+        fetch( url, option )
         .then( res => res.json() )
         .then( data => {
             let formatData = fn( data );
@@ -24,7 +26,7 @@ function fetcherGenerator( fetcher = {} ){
         })
         .catch( errMsg => console.warn(errMsg) );
     };
-    fetcher.setHeader = function(
+    fetcher.setOption = function(
         AppID = 'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF', 
         AppKey = 'FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF'){
         // let GMTString = new Date().toGMTString();
@@ -32,9 +34,9 @@ function fetcherGenerator( fetcher = {} ){
         // ShaObj.setHMACKey( AppKey, 'TEXT' );
         // ShaObj.update( 'x-date: ' + GMTString );
         // let HMAC = ShaObj.getHMAC( 'B64' );
-        // let Authorization = 'hmac username="' + AppID + '", algorithm="hmac-sha1", headers="x-date", signature="' + HMAC + '"';
-        // fetcher.header = { 'Authorization' : Authorization, 'X-Date' : GMTString }; 
-        fetcher.header = {};
+        // let Authorization = 'hmac username="' + AppID + '", algorithm="hmac-sha1", options="x-date", signature="' + HMAC + '"';
+        // fetcher.option = { 'Authorization' : Authorization, 'X-Date' : GMTString }; 
+        fetcher.option = {};
     };
     fetcher.setUrl = function( fn ){
         fetcher.url = fn(...arguments);
